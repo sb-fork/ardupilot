@@ -3333,11 +3333,12 @@ void GCS_MAVLINK::handle_command_ack(const mavlink_message_t &msg)
 // allow override of RC channel values for complete GCS
 // control of switch position and RC PWM values.
 void GCS_MAVLINK::handle_rc_channels_override(const mavlink_message_t &msg)
-{
-    if(msg.sysid != sysid_my_gcs()) {
-        return; // Only accept control from our gcs
-    }
-
+{    
+    // hal.console->printf("Bad boy\n");
+    // if(msg.sysid != sysid_my_gcs()) {
+    //     return; // Only accept control from our gcs
+    // }
+    // hal.console->printf("Bad boy 2\n");
     const uint32_t tnow = AP_HAL::millis();
 
     mavlink_rc_channels_override_t packet;
