@@ -28,7 +28,7 @@ bool DroneShowLED_SerialLED::set_raw_rgb(uint8_t red, uint8_t green, uint8_t blu
     AP_SerialLED* serialLed = AP_SerialLED::get_singleton();
 
     if (serialLed) {
-        serialLed->set_RGB(_chan, -1, red, green, blue);
+        serialLed->set_RGB(_chan, -1, 255 - red, 255 - green, 255 - blue);
         serialLed->send(_chan);
         return true;
     } else {
