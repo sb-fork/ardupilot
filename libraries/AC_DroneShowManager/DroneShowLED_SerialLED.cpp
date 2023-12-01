@@ -66,10 +66,10 @@ bool DroneShowLED_SerialLED::set_raw_rgb(uint8_t red, uint8_t green, uint8_t blu
         // auto mappedColor = mapColor(red, green, blue);
         // serialLed->set_RGB(_chan, -1, std::get<0>(mappedColor), std::get<1>(mappedColor), std::get<2>(mappedColor));
         // serialLed->set_RGB(_chan, -1, 255, 255, 255);
-        // serialLed->set_RGB(_chan, -1, red, green, blue);
+        serialLed->set_RGB(_chan, -1, red, green, blue);
         // serialLed->set_RGB(_chan, -1, green, red, blue);
         // serialLed->set_RGB(_chan, -1, 255 - green, 255 - blue, 255 - red);
-        serialLed->set_RGB(_chan, -1,  green,  blue,  red);
+        // serialLed->set_RGB(_chan, -1,  green,  blue,  red);
         serialLed->send(_chan);
         return true;
     } else {
