@@ -11,6 +11,7 @@
 #include "DroneShowLED_MAVLink.h"
 #include "DroneShowLED_RGB.h"
 #include "DroneShowLED_SerialLED.h"
+#include "DroneShowLED_FlyAI.h"
 
 /// Default constructor.
 DroneShowLEDFactory::DroneShowLEDFactory()
@@ -68,6 +69,10 @@ DroneShowLED* DroneShowLEDFactory::new_rgb_led_by_type(
 
         case DroneShowLEDType_Debug:
             result = new DroneShowLED_Debug();
+            break;
+        
+        case DroneShowLEDType_FlyAI:
+            result = new DroneShowLED_FlyAI(DroneShowLED_FlyAIType_NeoPixel, channel, num_leds);
             break;
 
         default:
